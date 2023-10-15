@@ -12,17 +12,16 @@ function createImgListMarkup(img) {
     })
     .join("");
 }
-function handleImageClick(event) {
-  event.preventDefault();
-  const target = event.target;
-  const largeImage = target.dataset.source;
-  const lightbox = new SimpleLightbox(".gallery a", {
-    largeImage,
-    animationSpeed: 250,
-  });
-}
 const imgMarkup = createImgListMarkup(galleryItems);
 imagesList.insertAdjacentHTML("beforeend", imgMarkup);
 imagesList.addEventListener("click", handleImageClick);
-
+function handleImageClick(event) {
+  event.preventDefault();
+}
+const lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionPosition: "bottom",
+  captionDelay: 250,
+});
+console.log(lightbox);
 console.log(galleryItems);
