@@ -17,6 +17,10 @@ imagesList.insertAdjacentHTML("beforeend", imgMarkup);
 imagesList.addEventListener("click", handleImageClick);
 function handleImageClick(event) {
   event.preventDefault();
+  const target = event.target;
+  if (target.nodeName !== "IMG") {
+    return;
+  }
 }
 const lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",

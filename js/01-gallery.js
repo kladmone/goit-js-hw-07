@@ -22,6 +22,9 @@ function handleImageClick(event) {
   event.preventDefault();
   const target = event.target;
   const largeImage = target.dataset.source;
+  if (target.nodeName !== "IMG") {
+    retutrn;
+  }
   const instance = basicLightbox.create(`
     <img src="${largeImage}" width="800" height="600">
   `);
